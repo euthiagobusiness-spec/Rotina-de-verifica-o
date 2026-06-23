@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 5004",
+    "dev": "next dev --port 5004 --experimental-https",
     "build": "next build",
     "import:local-images": "node --no-warnings scripts/import-local-images.ts",
     "start": "next start",

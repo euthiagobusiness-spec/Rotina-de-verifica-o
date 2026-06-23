@@ -50,7 +50,7 @@ export function getBaseUrl() {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  return "http://localhost:5004";
+  return "https://localhost:5004";
 }
 
 export function portalUrl(token: string) {
