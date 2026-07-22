@@ -4,11 +4,9 @@ export const OPERATIONAL_TASK_TITLES = [
   "Verificar alertas da Stays",
   "Conferir status dos canais: Airbnb, Booking, Expedia e Decolar",
   "Verificar calendário dos próximos 30 dias",
-  "Identificar bloqueios indevidos",
-  "Conferir novas reservas das últimas 24h",
-  "Conferir cancelamentos das últimas 24h",
   "Responder mensagens pendentes",
   "Revisar preços dos próximos 14 dias",
+  "acompanhar preço do mercado.",
   "Verificar imóveis sem procura",
   "Registrar ação tomada no dia",
 ];
@@ -26,6 +24,23 @@ export function createInitialTasks(): OperationalTask[] {
     completedAt: null,
     problemNotifiedAt: null,
   }));
+}
+
+export function reconcileTasks(tasks: OperationalTask[]) {
+  const initialTasks = createInitialTasks();
+
+  return initialTasks.map((task) => {
+    const existingTask = tasks.find((item) => item.title === task.title);
+
+    if (!existingTask) return task;
+
+    return {
+      ...task,
+      ...existingTask,
+      id: task.id,
+      title: task.title,
+    };
+  });
 }
 
 export function createActivity(

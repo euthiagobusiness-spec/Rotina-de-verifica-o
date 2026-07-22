@@ -28,6 +28,7 @@ import {
   formatSeconds,
   getLiveElapsed,
   getVerificationStats,
+  reconcileTasks,
   toDateKey,
 } from "@/lib/operational-verification/tasks";
 import type {
@@ -1000,7 +1001,10 @@ function loadCurrentVerification() {
     if (!raw) return createVerification(today);
     const parsed = JSON.parse(raw) as OperationalVerification;
     if (parsed.date !== today) return createVerification(today);
-    return parsed;
+    return {
+      ...parsed,
+      tasks: reconcileTasks(parsed.tasks),
+    };
   } catch {
     return createVerification(today);
   }
