@@ -11,6 +11,7 @@ import {
   Circle,
   Clock3,
   Cloud,
+  Download,
   FileText,
   Mail,
   Pause,
@@ -43,6 +44,8 @@ import type {
 const LOCAL_STORAGE_KEY = "mv2-operational-verification-current";
 const LOCAL_HISTORY_KEY = "mv2-operational-verification-history";
 const BRAND_LOGO = "/uploads/brand/logo-mv2-em-vetor-moderno.png";
+const DESKTOP_DOWNLOAD_URL =
+  "https://github.com/euthiagobusiness-spec/Rotina-de-verifica-o/releases/latest/download/Rotina-de-Verificacao-Setup-1.0.0.exe";
 
 type ViewMode = "daily" | "history" | "reports" | "settings";
 
@@ -375,6 +378,15 @@ export function OperationalVerificationApp() {
             label="Configurações"
             onClick={() => setView("settings")}
           />
+          <a
+            className="mt-2 flex min-h-12 items-center gap-3 rounded-lg border border-white/15 px-4 text-sm font-black text-white transition hover:bg-white/10"
+            href={DESKTOP_DOWNLOAD_URL}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Download size={22} />
+            Baixar app Windows
+          </a>
         </nav>
 
         <div className="mt-auto grid gap-4 p-4">

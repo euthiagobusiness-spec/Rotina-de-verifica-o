@@ -1,0 +1,54 @@
+{
+  "name": "rotina-de-verificacao-desktop",
+  "version": "1.0.0",
+  "description": "Aplicativo Windows da rotina de verificacao operacional MV2",
+  "author": "MV2",
+  "main": "main.cjs",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "icon": "node scripts/build-icon.cjs",
+    "pack": "npm run icon && electron-builder --dir --win --x64",
+    "dist": "npm run icon && electron-builder --win nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "43.2.0",
+    "electron-builder": "26.15.3",
+    "png-to-ico": "3.0.2"
+  },
+  "build": {
+    "appId": "com.mv2.rotinadeverificacao",
+    "productName": "Rotina de Verificacao",
+    "copyright": "Copyright (c) 2026 MV2",
+    "compression": "maximum",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.cjs",
+      "offline.html",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Rotina-de-Verificacao-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Rotina de Verificacao",
+      "uninstallDisplayName": "Rotina de Verificacao"
+    }
+  }
+}

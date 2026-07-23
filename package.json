@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --port 5004 --experimental-https",
     "build": "next build",
+    "desktop": "npm --prefix desktop start",
+    "desktop:dist": "npm --prefix desktop run dist",
     "import:local-images": "node --no-warnings scripts/import-local-images.ts",
     "start": "next start",
     "lint": "eslint"

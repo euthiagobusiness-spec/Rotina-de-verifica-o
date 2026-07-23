@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rotina de Verificação</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f7f9fc;
+        color: #10223a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 32px;
+      }
+
+      main {
+        width: min(460px, 100%);
+        text-align: center;
+      }
+
+      img {
+        width: 88px;
+        height: 88px;
+        border-radius: 18px;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 28px;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 0 0 28px;
+        color: #52657e;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      button {
+        min-height: 46px;
+        border: 0;
+        border-radius: 7px;
+        padding: 0 22px;
+        background: #0875e1;
+        color: white;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #0565c4;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="assets/icon.png" alt="MV2" />
+      <h1>Sem conexão com o sistema</h1>
+      <p>
+        Verifique sua internet e tente novamente. Seus dados salvos no navegador
+        permanecem neste computador.
+      </p>
+      <button type="button" id="retry">Tentar novamente</button>
+    </main>
+    <script>
+      document.getElementById("retry").addEventListener("click", () => {
+        window.location.replace(
+          "https://rotina-de-verificacao.vercel.app/verificacao-operacional",
+        );
+      });
+    </script>
+  </body>
+</html>
